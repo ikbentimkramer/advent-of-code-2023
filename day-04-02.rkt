@@ -174,7 +174,7 @@
     [(null? stack) (increment-top-n stack (cons mult acc) mult (- n 1))]
     [else (increment-top-n (cdr stack) (cons (+ (car stack) mult) acc) mult (- n 1))]))
 
-; Loop through each cards and add the number of new cards to the stack
+; Loop through all cards and add the number of new cards to the stack
 (define (process-cards acc stack cl)
   (cond
     [(null? cl) acc]
