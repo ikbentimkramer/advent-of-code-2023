@@ -84,14 +84,14 @@
  a-end))
 
 ; They all go round fully
-(eq? (apply + (map (λ (x) (remainder x (length (string->list directions)))) pt2-runlengths)) 0)
+(eq? (apply + (map (λ (x) (remainder x (string-length directions))) pt2-runlengths)) 0)
 
-; So the solution must be the product of all quotients, times the
+; So the solution may be the product of all quotients, times the
 ; number of steps. The product of quotients it the number of full
 ; passes, so the multiplication with the number of steps is necessary.
 (apply * (cons
-          (length (string->list directions))
+          (string-length directions)
           (map
-           (λ (x) (quotient x (length (string->list directions))))
+           (λ (x) (quotient x (string-length directions)))
            pt2-runlengths)))
 
