@@ -69,7 +69,6 @@
 ; in part 2, loc is a list. Turns out to be quite slow
 (define (part2 gen dir cnt loc)
   (cond
-    ;[(eq? cnt 100) cnt]
     [(null? (filter (λ (lc) (not (string=? (hash-ref last-letter lc) "Z"))) loc)) cnt]
     [(eq? dir #\L) (part2 gen (gen) (add1 cnt) (map (λ (lc) (hash-ref left lc)) loc))]
     [(eq? dir #\R) (part2 gen (gen) (add1 cnt) (map (λ (lc) (hash-ref right lc)) loc))]))
